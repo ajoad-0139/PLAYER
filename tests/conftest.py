@@ -1,4 +1,5 @@
 
+import os
 import pytest
 import random
 from config import settings
@@ -27,3 +28,11 @@ def random_book_indexes() -> list[int]:
 @pytest.fixture
 def login_page(page: Page) -> LoginPage:
     return LoginPage(page)
+
+
+@pytest.fixture(scope="session")
+def browser_context_args(browser_context_args):
+    return {
+        **browser_context_args,
+        "ignore_https_errors": os.getenv("IGNORE_HTTPS_ERRORS") == "1",
+    }

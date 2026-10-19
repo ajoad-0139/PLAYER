@@ -61,7 +61,7 @@ Quotes to Scrape accepts any non-empty credentials. All URLs and constants live 
 pytest                                            # all tests
 pytest tests/test_homepage.py                     # one file
 pytest -k login                                   # by keyword
-pytest --headed                                   # watch the browser
+IGNORE_HTTPS_ERRORS=1 pytest  --headed                                  # watch the browser
 pytest --browser chromium --device "iPhone 13"    # mobile emulation
 ```
 
