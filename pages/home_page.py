@@ -11,6 +11,8 @@ class HomePage(BasePage):
         self.books_section = page.locator("ol.row")
         self.books = page.locator("article.product_pod")
         self.headings = page.locator("h1, h2, h3, h4, h5, h6")
+        self.images = page.locator("article.product_pod img.thumbnail")
+        self.next_button = page.locator("li.next a")
 
     def open_home(self) -> None:
         self.open(settings.HOME_URL)
@@ -36,3 +38,13 @@ class HomePage(BasePage):
     def get_all_links(self) -> list[str]:
         hrefs = self.page.eval_on_selector_all("a", "elements => elements.map(e => e.href)")
         return sorted(set(hrefs))
+
+    def get_images(self) -> list[Locator]:
+        return self.images.all()
+
+    def has_next_page(self) -> bool:
+        return self.next_button.count() > 0
+
+    def go_to_next_page(self) -> None:
+        self.next_button.click()
+        self.page.wait_for_url("**/catalogue/page-*.html")
