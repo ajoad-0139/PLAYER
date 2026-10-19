@@ -18,3 +18,6 @@ MAX_PAGES = 5
 
 # Timeouts
 DEFAULT_TIMEOUT_MS = 10_000
+
+#http codes
+HTTP_OK = 200

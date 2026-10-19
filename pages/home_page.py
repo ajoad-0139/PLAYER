@@ -32,3 +32,7 @@ class HomePage(BasePage):
     def open_book(self, index: int) -> None:
         self.books.nth(index).locator("h3 a").click()
         self.page.wait_for_url("**/catalogue/*/index.html")
+
+    def get_all_links(self) -> list[str]:
+        hrefs = self.page.eval_on_selector_all("a", "elements => elements.map(e => e.href)")
+        return sorted(set(hrefs))
