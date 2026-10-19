@@ -1,7 +1,7 @@
 from playwright.sync_api import Locator, Page
 
 from config import settings
-from pages.base import BasePage
+from pages.base_page import BasePage
 
 
 
@@ -22,3 +22,10 @@ class HomePage(BasePage):
                 visible_headings.append(heading)
 
         return visible_headings
+
+    def get_book_title(self, index: int) -> str:
+        return self.books.nth(index).locator("h3 a").get_attribute("title")
+
+    def open_book(self, index: int) -> None:
+        self.books.nth(index).locator("h3 a").click()
+        self.page.wait_for_url("**/catalogue/*/index.html")
