@@ -26,6 +26,9 @@ class HomePage(BasePage):
     def get_book_title(self, index: int) -> str:
         return self.books.nth(index).locator("h3 a").get_attribute("title")
 
+    def get_book_price(self, index: int) -> str:
+        return self.books.nth(index).locator(".price_color").inner_text()
+
     def open_book(self, index: int) -> None:
         self.books.nth(index).locator("h3 a").click()
         self.page.wait_for_url("**/catalogue/*/index.html")
