@@ -5,6 +5,7 @@ from config import settings
 from playwright.sync_api import Page
 from pages.home_page import HomePage
 from pages.book_details_page import BookDetailsPage
+from pages.login_page import LoginPage
 
 
 @pytest.fixture
@@ -22,3 +23,7 @@ def book_details_page(page: Page) -> BookDetailsPage:
 def random_book_indexes() -> list[int]:
     indexes = random.sample(range(settings.BOOKS_PER_PAGE), settings.BOOKS_TO_SAMPLE)
     return indexes
+
+@pytest.fixture
+def login_page(page: Page) -> LoginPage:
+    return LoginPage(page)

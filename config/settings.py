@@ -8,8 +8,10 @@ HOME_TITLE = "All products | Books to Scrape - Sandbox"
 # Quotes to Scrape 
 QUOTES_BASE_URL = "https://quotes.toscrape.com/"
 QUOTES_LOGIN_URL = f"{QUOTES_BASE_URL}login"
-QUOTES_USERNAME = os.getenv("QUOTES_USERNAME", "admin")
-QUOTES_PASSWORD = os.getenv("QUOTES_PASSWORD", "admin")
+
+QUOTES_HOME_TITLE = "Quotes to Scrape"
+QUOTES_USERNAME = "admin"
+QUOTES_PASSWORD = "admin"
 
 # data sizing 
 BOOKS_PER_PAGE = 20        
