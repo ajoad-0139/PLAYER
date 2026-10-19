@@ -1,4 +1,5 @@
 # Books to Scrape: UI Automation Framework
+**Live Allure report (latest `main` run):** https://ajoad-0139.github.io/PLAYER/
 
 ## 1. Project Overview
 
@@ -16,6 +17,7 @@ It runs locally, in Docker and in GitHub Actions, and produces pytest-html and A
 - Dockerfile based on the official Playwright image
 - GitHub Actions pipeline on push and pull request, with uploaded artifacts
 - Mobile device emulation through the `--device` option
+- Allure report published automatically to GitHub Pages after every push to `main`
 
 ## 3. Tech Stack
 
@@ -142,7 +144,11 @@ Open `reports/report.html` in any browser. The file is self-contained, so a doub
 
 ## 11. Allure Report Guide
 
-The `allure-pytest` plugin only writes raw results. Turning them into a report needs Java 8+ and the Allure CLI.
+**Live report (latest `main` run):** https://ajoad-0139.github.io/PLAYER/
+
+No download or setup is needed to view the live report. It is rebuilt on every push to `main` and replaces the previous version.
+
+To view a report locally, the `allure-pytest` plugin only writes raw results. Turning them into a report needs Java 8+ and the Allure CLI.
 
 ```bash
 allure serve allure-results                               # build and open a temporary report
